@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         // This are the stages of our pipeline, each stage will run in a separate container
-        /*
+
         stage('Build') {
             agent {
                 docker {
@@ -22,7 +22,6 @@ pipeline {
                 '''
             }
         }
-        */
 
 
         stage('Tests') {
