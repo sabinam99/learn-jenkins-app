@@ -87,6 +87,10 @@ pipeline {
                 }
             }
 
+            environment {
+                CI_ENVIRONMENT_URL = 'undefined'
+            }
+
             steps {
                 sh '''
                     npm install netlify-cli@20.1.1 node-jq
@@ -114,24 +118,6 @@ pipeline {
                 }
             }
         }
-
-//        stage('Deploy prod') {
-//            agent {
-//                docker {
-//                    image 'node:18-alpine'
-//                    reuseNode true
-//                }
-//            }
-//            steps {
-//                sh '''
-//                    npm install netlify-cli@20.1.1
-//                    node_modules/.bin/netlify --version
-//                    echo "Deploying to production. Site ID: $NETLIFY_SITE_ID"
-//                    node_modules/.bin/netlify status
-//                    node_modules/.bin/netlify deploy --dir=build  --prod
-//                '''
-//            }
-//        }
 
         stage('Deploy prod') {
             agent {
