@@ -10,13 +10,6 @@ pipeline {
     stages {
         // This are the stages of our pipeline, each stage will run in a separate container
 
-        stage('Docker') {
-            steps {
-                sh '''
-                    docker build -t my-playwright .
-                '''
-            }
-        }
         stage('Build') {
             agent {
                 docker {
