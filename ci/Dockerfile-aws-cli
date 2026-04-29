@@ -1,4 +1,2 @@
 FROM amazon/aws-cli
-#RUN amazon-linux-extras install docker
-#RUN yum install jq -y
-RUN apk add --no-cache docker jq
+RUN yum install -y docker jq
