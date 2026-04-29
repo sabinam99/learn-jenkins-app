@@ -10,6 +10,21 @@ pipeline {
     stages {
         // This are the stages of our pipeline, each stage will run in a separate container
 
+
+        stage('AWS') {
+            agent {
+                docker {
+                    image 'amazon/aws-cli'
+                }
+            }
+
+            steps {
+                sh '''
+                    aws --version
+                '''
+            }
+        }
+
         stage('Build') {
             agent {
                 docker {
