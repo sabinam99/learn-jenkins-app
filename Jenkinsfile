@@ -23,7 +23,7 @@ pipeline {
                     sh '''
                         aws --version
                         aws ecs register-task-definition --cli-input-json file://aws/task-definition.json
-                        aws ecs update-service --cluster learn-jenkins -service learn-jenkins-service --task-definition learn-jenkins-taks-definition:2
+                        aws ecs update-service --cluster learn-jenkins --service learn-jenkins-service --task-definition learn-jenkins-taks-definition:2
                     '''
                 }
             }
