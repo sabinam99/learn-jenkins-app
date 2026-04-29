@@ -26,6 +26,7 @@ pipeline {
                         LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition.json | jq -r '.taskDefinition.revision')
                         echo $LATEST_TD_REVISION
                         aws ecs update-service --cluster learn-jenkins --service learn-jenkins-service --task-definition learn-jenkins-taks-definition:$LATEST_TD_REVISION
+                        aws ecs wait services-stable --cluster learn-jenkins --services learn-jenkins-service
                     '''
                 }
             }
