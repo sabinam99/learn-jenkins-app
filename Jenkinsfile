@@ -43,7 +43,6 @@ pipeline {
 
             steps {
                 sh '''
-             
                     docker build -t my-jenkins-app .
                 '''
             }
